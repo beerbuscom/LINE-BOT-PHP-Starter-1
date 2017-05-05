@@ -1,4 +1,5 @@
 <?php
+
 $access_token = 'iOAyJbgwtAZwMX0uFk3PbSJfXUe4DKfY/9BOnmNZZNV3qDaNzd2kkU6pIN3smlVNS81qEfcpCHHebo0d7JoraRnM6K/aOi+irAbiE+3VNINYVQxlZ2V9VB+7WCry5vsgaL5j3A+tlOL6wIKeQWQauAdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -12,9 +13,9 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			$text = $event['replyToken'];
+			$text = $event['message']['text'];
 			// Get replyToken
-			$replyToken = 'K9SeoAZaESrTYJrPE9QjgJcyDRXuNv5UMXnROLTP6Ak';
+			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
@@ -44,4 +45,5 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
+echo "OK";
 ?>
